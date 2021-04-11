@@ -1,0 +1,186 @@
+{
+  "#!": {
+    "prefix": "#!",
+    "body": "#!/usr/bin/env Rscript\n$0",
+    "description": "#!/usr/bin/env Rscript"
+  },
+  "setwd": {
+    "prefix": "setwd",
+    "body": "setwd(\"${1:`!p snip.rv = os.getcwd()`}\")",
+    "description": "Set workingdir"
+  },
+  "as": {
+    "prefix": "as",
+    "body": "as.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`($2${VISUAL})",
+    "description": "Apply type on variable"
+  },
+  "is": {
+    "prefix": "is",
+    "body": "is.$1`!p snip.rv = complete(t[1], FIELD_TYPES)`($2${VISUAL})",
+    "description": "Test type on variable"
+  },
+  "dl": {
+    "prefix": "dl",
+    "body": "download.file(\"${1:${VISUAL:url to package}}\", destfile = \"${2:${1/.*\\/(\\S*)$/(?1:$1)/ga}}\")\ninstall.packages(\"$2\", type = \"source\", repos = NULL)\nlibrary(\"${3:${2/^(\\w+)_.*$/(?1:$1)/ga}}\")",
+    "description": "Download and install a package"
+  },
+  "lib": {
+    "prefix": "lib",
+    "body": "library('${0:${VISUAL:package}}')",
+    "description": "Import a library"
+  },
+  "req": {
+    "prefix": "req",
+    "body": "require('${0:${VISUAL:package}}')",
+    "description": "Require a file"
+  },
+  "source": {
+    "prefix": "source",
+    "body": "source('${0:${VISUAL:file}}')",
+    "description": "Source a file"
+  },
+  "if": {
+    "prefix": "if",
+    "body": "if ($1) {\n\t$0\n}",
+    "description": "If statement"
+  },
+  "eif": {
+    "prefix": "eif",
+    "body": "else if ($1) {\n\t$0\n}",
+    "description": "Else-If statement"
+  },
+  "el": {
+    "prefix": "el",
+    "body": "else {\n\t$0\n}",
+    "description": "Else statement"
+  },
+  "ife": {
+    "prefix": "ife",
+    "body": "if ($1) {\n\t$2\n} else {\n\t$0\n}",
+    "description": "if .. else"
+  },
+  "wh": {
+    "prefix": "wh",
+    "body": "while($1) {\n\t$0\n}",
+    "description": "while loop"
+  },
+  "for": {
+    "prefix": "for",
+    "body": "for (${1:item} in ${2:list}) {\n\t$0\n}",
+    "description": "for loop"
+  },
+  "fun": {
+    "prefix": "fun",
+    "body": "${1:name} <- function ($2) {\n\t$0\n}",
+    "description": "Function definition"
+  },
+  "ret": {
+    "prefix": "ret",
+    "body": "return($0)",
+    "description": "Return call"
+  },
+  "df": {
+    "prefix": "df",
+    "body": "${1:name}[${2:rows}, ${0:cols}]",
+    "description": "Data frame"
+  },
+  "c": {
+    "prefix": "c",
+    "body": "c(${0:${VISUAL:items}})",
+    "description": "c function"
+  },
+  "li": {
+    "prefix": "li",
+    "body": "list(${0:${VISUAL:items}})",
+    "description": "list function"
+  },
+  "mat": {
+    "prefix": "mat",
+    "body": "matrix(${1:${VISUAL:data}}, nrow = ${2:rows}, ncol = ${0:cols})",
+    "description": "matrix function"
+  },
+  "apply": {
+    "prefix": "apply",
+    "body": "apply(${1:${VISUAL:array}}, ${2:margin}, ${0:function})",
+    "description": "apply function"
+  },
+  "lapply": {
+    "prefix": "lapply",
+    "body": "lapply(${1:${VISUAL:list}}, ${0:function})",
+    "description": "lapply function"
+  },
+  "sapply": {
+    "prefix": "sapply",
+    "body": "sapply(${1:${VISUAL:list}}, ${0:function})",
+    "description": "sapply function"
+  },
+  "vapply": {
+    "prefix": "vapply",
+    "body": "vapply(${1:${VISUAL:list}}, ${2:function}, ${0:type})",
+    "description": "vapply function"
+  },
+  "mapply": {
+    "prefix": "mapply",
+    "body": "mapply(${1:${VISUAL:function}}, ${0:...})",
+    "description": "mapply function"
+  },
+  "tapply": {
+    "prefix": "tapply",
+    "body": "tapply(${1:${VISUAL:vector}}, ${2:index}, ${0:function})",
+    "description": "tapply function"
+  },
+  "rapply": {
+    "prefix": "rapply",
+    "body": "rapply(${1:${VISUAL:list}}, ${0:function})",
+    "description": "rapply function"
+  },
+  "pl": {
+    "prefix": "pl",
+    "body": "plot(${1:${VISUAL:x}}, ${0:y})",
+    "description": "Plot function"
+  },
+  "ggp": {
+    "prefix": "ggp",
+    "body": "ggplot(${1:${VISUAL:data}}, aes(${0:aesthetics}))",
+    "description": "ggplot2 plot"
+  },
+  "fis": {
+    "prefix": "fis",
+    "body": "fisher.test(${1:x}, ${0:y})",
+    "description": "Fisher test"
+  },
+  "chi": {
+    "prefix": "chi",
+    "body": "chisq.test(${1:x}, ${0:y})",
+    "description": "Chi Squared test"
+  },
+  "tt": {
+    "prefix": "tt",
+    "body": "t.test(${1:x}, ${0:y})",
+    "description": "t-test"
+  },
+  "wil": {
+    "prefix": "wil",
+    "body": "wilcox.test(${1:x}, ${0:y})",
+    "description": "Wilcox test"
+  },
+  "cor": {
+    "prefix": "cor",
+    "body": "cor.test(${1:x}, ${0:y})",
+    "description": "Correlation test"
+  },
+  "fte": {
+    "prefix": "fte",
+    "body": "var.test(${1:x}, ${0:y})",
+    "description": "FTE test"
+  },
+  "kvt": {
+    "prefix": "kvt",
+    "body": "kv.test(${1:x}, ${0:y})",
+    "description": "KV test"
+  },
+  "vec": {
+    "prefix": "vec",
+    "body": "${1:var} <- c(\"${0:${VISUAL:/ /\",\"/g}}\")"
+  }
+}

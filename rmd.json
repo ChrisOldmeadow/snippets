@@ -1,0 +1,181 @@
+{
+  "header": {
+    "prefix": "header",
+    "body": "---\ntitle:           $1\nauthor:          Chris Oldmeadow\ndate:            `date +%d.%m.%Y`\nlinkcolor:       cyan\ncitecolor:       grey\nbibliography:    /Users/chris/Work/bib/work.bib\noutput:\n\thtml_document:\n\t\tcode_folding: hide\n---\n\n${2:\\tableofcontents}\n\n$0"
+  },
+  "toc": {
+    "prefix": "toc",
+    "body": "\n\\tableofcontents\n\n",
+    "description": "Table of Contents"
+  },
+  "html": {
+    "prefix": "html",
+    "body": "output:\n\thtml_document:\n\ttoc:               true\n\ttoc_float:\n\t\tcollapsed:       false\n\t\tsmooth_scroll:   true\n\t\ttheme:           united\n\t\thighlight:       zenburn\n\t\tnumber_section:  true",
+    "description": "HTML Export Config"
+  },
+  "presi": {
+    "prefix": "presi",
+    "body": "output:\n  slidy_presentation:\n    incremental: true\nruntime: shiny",
+    "description": "Output config for shiny presentation"
+  },
+  "code": {
+    "prefix": "code",
+    "body": "\\`\\`\\`{${1:r Code Chunk}, echo=${2:TRUE}}\n${3:library(plotly)}\n\\`\\`\\`",
+    "description": "Code snippet"
+  },
+  "quote": {
+    "prefix": "quote",
+    "body": "\"${1:${VISUAL:Quote}}\" -[@${2:authoryear}]",
+    "description": "Quotation"
+  },
+  "ref": {
+    "prefix": "ref",
+    "body": "-[@`!p\ndata_in = t[1]\nsnip.rv = fuzzy_complete(data_in, poll(data_in))\n`]\n$1",
+    "description": "Autocomplete from References"
+  },
+  "hr": {
+    "prefix": "hr",
+    "body": "\n***\n",
+    "description": "Horizontal Row"
+  },
+  "h1": {
+    "prefix": "h1",
+    "body": "# ${1:Header name}\n\n$0",
+    "description": "Header h1"
+  },
+  "h1i": {
+    "prefix": "h1i",
+    "body": "# ${1:Header name} {#${2:id}}\n\n$0",
+    "description": "Header h1 with id"
+  },
+  "h2": {
+    "prefix": "h2",
+    "body": "## ${1:Header name}\n\n$0",
+    "description": "Header h2"
+  },
+  "h2i": {
+    "prefix": "h2i",
+    "body": "## ${1:Header name} {#${2:id}}\n\n$0",
+    "description": "Header h2 with id"
+  },
+  "h3": {
+    "prefix": "h3",
+    "body": "### ${1:Header name}\n\n$0",
+    "description": "Header h3"
+  },
+  "h3i": {
+    "prefix": "h3i",
+    "body": "### ${1:Header name} {#${2:id}}\n\n$0",
+    "description": "Header h3 with id"
+  },
+  "h4": {
+    "prefix": "h4",
+    "body": "#### ${1:Header name}\n\n$0",
+    "description": "Header h4"
+  },
+  "h4i": {
+    "prefix": "h4i",
+    "body": "#### ${1:Header name} {#${2:id}}\n\n$0",
+    "description": "Header h4 with id"
+  },
+  "h5": {
+    "prefix": "h5",
+    "body": "##### ${1:Header name}\n\n$0",
+    "description": "Header h5"
+  },
+  "h5i": {
+    "prefix": "h5i",
+    "body": "##### ${1:Header name} {#${2:id}}\n\n$0",
+    "description": "Header h5 with id"
+  },
+  "h6": {
+    "prefix": "h6",
+    "body": "###### ${1:Header name}\n\n$0",
+    "description": "Header h6"
+  },
+  "h6i": {
+    "prefix": "h6i",
+    "body": "###### ${1:Header name} {#${2:id}}\n\n$0",
+    "description": "Header h6 with id"
+  },
+  "hrlnk": {
+    "prefix": "hrlnk",
+    "body": "[${1:Text}](#${2:Header ID})$0",
+    "description": "Header ID Link"
+  },
+  "hrlac": {
+    "prefix": "hrlac",
+    "body": "[${1:Text}](#${1/(\\w+)(\\s*)/\\L$1\\E(?2:-)/g})$0",
+    "description": "Header ID Link auto-complete"
+  },
+  "lnk": {
+    "prefix": "lnk",
+    "body": "[${1:${VISUAL:Text}}](${3:http://${2:www.url.com}}${4/.+/ \"/}${4:opt title}${4/.+/\"/})$0",
+    "description": "Inline Link"
+  },
+  "rlnk": {
+    "prefix": "rlnk",
+    "body": "[${1:${VISUAL:Text}}][${2:Reference}]$0",
+    "description": "Reference-style link"
+  },
+  "rdef": {
+    "prefix": "rdef",
+    "body": "[${1}]: ${3:http://${2:www.url.com}}\n$0",
+    "description": "Reference-style link ID"
+  },
+  "flnk": {
+    "prefix": "flnk",
+    "body": "<http://${1:url}>$0",
+    "description": "Fast link"
+  },
+  "*": {
+    "prefix": "*",
+    "body": "*${1:${VISUAL:Text}}*$0",
+    "description": "Italic"
+  },
+  "_": {
+    "prefix": "_",
+    "body": "__${1:${VISUAL:Text}}__$0",
+    "description": "Strong"
+  },
+  "*_": {
+    "prefix": "*_",
+    "body": "***${1:${VISUAL:Text}}***$0",
+    "description": "Italic and Strong"
+  },
+  ">": {
+    "prefix": ">",
+    "body": " > ${1:${VISUAL:Text}:${VISUAL:Text}}\n\n$0",
+    "description": "Quote"
+  },
+  "ol": {
+    "prefix": "ol",
+    "body": "1. ${1}\n1. ${2}\n1. ${3}\n1. ${4}\n$0",
+    "description": "Ordered List"
+  },
+  "ul": {
+    "prefix": "ul",
+    "body": "* ${1}\n* ${2}\n* ${3}\n* ${4}\n$0",
+    "description": "Unordered List"
+  },
+  "dl": {
+    "prefix": "dl",
+    "body": "${1:Word 1}\n: ${2:Definition}\n${3:Word 2}\n: ${4:Definition}\n${5:Word 3}\n: ${6:Definition}\n${7:Word 4}\n: ${8:Definition}\n\n$0",
+    "description": "Definition List"
+  },
+  "img!": {
+    "prefix": "img!",
+    "body": "![${1:pic alt}](${2:path}${3/.+/ \"/}${3:opt title}${3/.+/\"/})$0",
+    "description": "Image"
+  },
+  "ilnk": {
+    "prefix": "ilnk",
+    "body": "![${1:${VISUAL:Text}}][${2:Reference}] $0",
+    "description": "Reference-style Image"
+  },
+  "idef": {
+    "prefix": "idef",
+    "body": "  [${1}]: ${2:path}${3/.+/ \"/}${3:opt title}${3/.+/\"/}\n  $0",
+    "description": "Reference-style Image ID"
+  }
+}
